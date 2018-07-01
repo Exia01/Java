@@ -1,11 +1,11 @@
 public class HelloDojo {
     public static void main(String[] args) {
-        // int age; //here's the name
+        // int age; //here's the name // can be declared before used.
         // double is used for fractions
         // int age = 28; // here's the assignment operator equaling 28
         String greeting = "My name is Sixto. ";
         String age = "I am 28 years old. ";
-        String location = " My Hometown is Manassas, VA. ";
+        String location = " My hometown is Manassas, VA. ";
         String str = greeting + " " + age + location;
 
         // System.out.println(greeting + age + "." + location);
