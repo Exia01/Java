@@ -4,10 +4,10 @@ public class HelloDojo {
         // double is used for fractions
         int currentAge = 28; // here's the assignment operator equaling 28
         String myName ="Sixto";
-        String currentLocation = "Manassas, VA.";
+        String homeLocation = "Manassas, VA.";
         String greeting = "My name is " + myName + ".";
         String age = "I am " + currentAge +  " years old.";
-        String location = "My hometown is " + currentLocation;
+        String location = "My hometown is " + homeLocation;
         String str = greeting + "  "  + age + "  " + location ;
 
         // System.out.println(greeting + age + "." + location);
