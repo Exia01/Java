@@ -3,16 +3,19 @@ public class HelloDojo {
         // int age; //here's the name // can be declared before used.
         // double is used for fractions
         int currentAge = 28; // here's the assignment operator equaling 28
-        String myName ="Sixto";
+        String myName = null;
         String homeLocation = "Manassas, VA.";
         String greeting = "My name is " + myName + ".";
-        String age = "I am " + currentAge +  " years old.";
+        String age = "I am " + currentAge + " years old.";
         String location = "My hometown is " + homeLocation;
-        String str = greeting + "  "  + age + "  " + location ;
+        String str = greeting + "  " + age + "  " + location;
 
         // System.out.println(greeting + age + "." + location);
-        System.out.println(str.replaceAll("  ", "\n"));
-        // System.out.println();
+        if (myName != null) {
+            System.out.println(str.replaceAll("  ", "\n"));
+        } else {
+            System.out.println("Please provide a name first.");
+        }
     }
 }
 
