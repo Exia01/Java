@@ -12,7 +12,7 @@ public class HelloDojo {
 
         // System.out.println(greeting + age + "." + location);
         System.out.println(str.replaceAll("  ", "\n"));
-        System.out.println();
+        // System.out.println();
     }
 }
 
