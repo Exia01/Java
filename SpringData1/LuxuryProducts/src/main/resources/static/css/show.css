@@ -1,0 +1,35 @@
+*{
+    margin: auto;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+.container {
+    margin-top: 2%;
+    padding: 2%;
+    width: 70%;
+    display: flex;
+    background-color: paleturquoise;
+}
+h1{
+    text-align: center;
+    font-size: 60px;
+}
+.box1 {
+    width: 40%;
+    height: 700px;
+    padding: 2%;
+    padding-bottom: 4%;
+    border: 2px dashed rgb(145, 145, 145);
+    color: palevioletred;
+}
+.box2 {
+    width: 40%;
+    height: 700px;
+    padding: 2%;
+    padding-bottom: 4%;
+    overflow: scroll;
+}
+p{
+    text-align: left;
+}
