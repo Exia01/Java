@@ -1,8 +1,13 @@
 package com.codingdojo.statelicense.repositories;
 
-public class LicenseRepo {
-    public interface LiscenseRepo extends CrudRepository<License, Long> {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import com.codingdojo.statelicense.models.License;
 
+
+@Repository
+    public interface LicenseRepo extends CrudRepository<License, Long> {
+
+//	License findbyId(Long id);
     }
 
-}

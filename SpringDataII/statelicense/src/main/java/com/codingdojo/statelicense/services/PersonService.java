@@ -1,8 +1,13 @@
 package com.codingdojo.statelicense.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+
+//import com.codingdojo.statelicense.models.License;
+import com.codingdojo.statelicense.models.Person;
+import com.codingdojo.statelicense.repositories.PersonRepo;
 
 @Service
 public class PersonService {
@@ -22,8 +27,16 @@ public class PersonService {
 		return (ArrayList<Person>) personRepo.findAll();
 	}
 
-	public Person findById( Long id) {
-		return personRepo.findOne(id);
+	
+public Person findById(Long id) {
+		
+		Optional<Person> p = personRepo.findById(id);
+		if(p.isPresent()) {
+			return p.get();
+		}
+		else {
+			return null;
+		}
 	}
 	
 }

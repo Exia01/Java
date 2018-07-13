@@ -20,7 +20,7 @@ h1{
     padding: 2%;
     padding-bottom: 4%;
     border: 2px dashed rgb(145, 145, 145);
-    color: palevioletred;
+    color: rgb(68, 68, 68);
 }
 .box2 {
     width: 40%;
@@ -28,5 +28,8 @@ h1{
     padding: 2%;
     padding-bottom: 4%;
     overflow: scroll;
+}
+.red{
+    color: red;
 }
 

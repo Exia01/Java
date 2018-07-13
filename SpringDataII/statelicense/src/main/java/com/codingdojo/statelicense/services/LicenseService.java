@@ -1,14 +1,13 @@
 package com.codingdojo.statelicense.services;
 
-package com.rnc.dojolicense.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.rnc.dojolicense.models.License;
-import com.rnc.dojolicense.repositories.LicenseRepo;
-import com.rnc.dojolicense.models.License;
+import com.codingdojo.statelicense.models.License;
+import com.codingdojo.statelicense.repositories.LicenseRepo;
 
 @Service
 public class LicenseService {
@@ -28,8 +27,14 @@ public class LicenseService {
 	}
 
 	public License findById(Long id) {
-
-		return licenseRepo.findOne(id);
+		
+		Optional<License> l = licenseRepo.findById(id);
+		if(l.isPresent()) {
+			return l.get();
+		}
+		else {
+			return null;
+		}
 	}
 	
 }
