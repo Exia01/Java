@@ -35,14 +35,14 @@ public class License {
     @OneToOne(fetch=FetchType.LAZY) // need to look this up and figure out what it is again. 
     @JoinColumn(name="person_id")
     private Person person;
-//    @Transient // transient is a variables modifier used in serialization. At the time of serialization, if we don’t want to save value of a particular variable in a file,
-//    private static int count;
+//   @Transient// transient is a variables modifier used in serialization. At the time of serialization, if we don’t want to save value of a particular variable in a file,
+   private static int count;
 
         public License() { // when we create a license, we are giving it the following attributes. 
-        //    License.count += 1; //increase the count every time 
-            this.number = String.format("%06d", this.id); // this is to add 6 zeros at the end of it. 
+           License.count += 1; //increase the count every time 
+            this.number = String.format("%06d", License.count); // this is to add 6 zeros at the end of it. 
 			this.expiration = LocalDate.now().plusDays(1095); //add 3 years to the expiration date. 
-			System.out.println(this.number);
+//			System.out.println(this.number);
         }
         
         public License(String state, Person person) {

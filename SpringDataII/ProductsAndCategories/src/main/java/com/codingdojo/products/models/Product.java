@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 import javax.persistence.ManyToMany;
@@ -18,12 +19,13 @@ public class Product {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min=1,max=255,message="GIVE YOUR PRODUCT A NAME!!!!!!!!")
-	
+
+	@NotNull(message = "Please provide a product name.")
+	@Size(min=1,max=255,message="Name must be at least 3 characters")
 	private String name;
 
-	@Min(1)	
-	private double cost;	
+	@Min(1 )
+	private double cost;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
@@ -37,6 +39,17 @@ public class Product {
 		
 	}
 	
+
+	// getters and setters
+	public void setCategories(List<Category> categories){
+			this.categories = categories;
+	}
+	
+	public List<Category> getCategories(){
+			return categories;
+	}
+
+		
 	public Long getId() {
 		return id;
 	}
@@ -61,10 +74,4 @@ public class Product {
 		this.cost = cost;
 	}
 
-	public void setCategories(List<Category> categories){
-		this.categories = categories;
-	}
-	public List<Category> getCategories(){
-		return categories;
-	}
 }

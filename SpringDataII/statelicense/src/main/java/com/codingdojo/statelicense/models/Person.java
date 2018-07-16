@@ -36,11 +36,21 @@ public class Person {
 	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private License license;
 
+
 	public Person() {
 
 	}
 
 	// Getters and Setters
+	public License getLicense() {
+		return license;
+	}
+	
+	
+	public void setLicense(License license) {
+		this.license = license;
+	}
+	
 	public Long getId() {
 		return id;
 	}

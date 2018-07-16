@@ -1,16 +1,19 @@
 package com.codingdojo.products.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+//import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Category {
@@ -21,6 +24,11 @@ public class Category {
 	@Size(min=1,max=255,message="Category Name Required.")
 	
 	private String name;
+
+	@Column(updatable = false)
+	private Date createdAt;
+	private Date updatedAt;
+	
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
@@ -29,7 +37,7 @@ public class Category {
 		inverseJoinColumns=@JoinColumn(name="product_id")
 	)
 	private List<Product> products;
-
+	
 	public Category() {
 		
 	}
@@ -40,20 +48,38 @@ public class Category {
 	public String getName(){
 		return name;
 	}
-
+	
 	public void setProducts(List<Product> products){
 		this.products = products;
 	}
-
+	
 	public List<Product> getProducts(){
 		return products;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
+	
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 }

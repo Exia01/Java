@@ -1,0 +1,22 @@
+*{
+	font-family: 'Roboto', sans-serif;
+	margin: auto;
+}
+
+
+body{
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	font-family: 'Knewave', cursive;
+}
+
+.errors{
+	color: rgb(240, 60, 60)
+}
+
+.container{
+	width: 80%;
+	margin-top: 5%;
+}

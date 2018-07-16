@@ -35,10 +35,8 @@ public class LicenseController {
 	public String generateLicense(@Valid @ModelAttribute("generate") License license, BindingResult result) {
 		
 		if (result.hasErrors()) {
-			return "newLicense";
+			return "redirect:/newLicense";
 		}
-		// System.out.println("expiration date: ");
-		// System.out.println(license.getExpiration());
 		licenseService.create(license);
 		return "redirect:/";
 	}
@@ -46,9 +44,9 @@ public class LicenseController {
 	@RequestMapping("show/{id}")
 	public String show(Model model, @PathVariable(value="id") Long id) {
 		model.addAttribute("license", licenseService.findById(id)); //searching for the license
-		System.out.println(licenseService.findById(id)); //printing it 
+		// System.out.println(licenseService.findById(id)); //printing it 
 		Person recipient = licenseService.findById(id).getPerson();  //get the person by the id?
-		System.out.println(recipient.getId()); //getting the id of the person that we are adding the license too
+		// System.out.println(recipient.getId()); //getting the id of the person that we are adding the license too
 		model.addAttribute("person", personService.findById(recipient.getId())); //find the person on the person table and show it. 
 		return "show";
 	}

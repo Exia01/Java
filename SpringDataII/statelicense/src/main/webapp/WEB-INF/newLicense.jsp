@@ -24,7 +24,9 @@
                                 <p>Person</p>
                                 <form:select path="person">
                                     <c:forEach items="${people}" var="x">
-                                        <form:option value="${x.id}">${x.fName} ${x.lName}</form:option>
+                                        <c:if test="${x.license ==null}">
+                                            <form:option value="${x.id}">${x.fName} ${x.lName}</form:option>
+                                        </c:if>
                                     </c:forEach>
                                 </form:select>
                                 <br>

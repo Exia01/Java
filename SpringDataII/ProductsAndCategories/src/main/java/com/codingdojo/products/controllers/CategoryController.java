@@ -1,16 +1,18 @@
 package com.codingdojo.products.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
+//import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,24 +22,24 @@ import com.codingdojo.products.services.CategoryService;
 @Controller
 @RequestMapping("/categories")
 public class CategoryController {
+
+	@Autowired
 	private CategoryService categoryService;
-	
-	public CategoryController(CategoryService categoryService) {
-		this.categoryService = categoryService;
-	}
 
 	@GetMapping("")
 	public String Categories(Model model) {
 		model.addAttribute("category", new Category());
-		
-		ArrayList<Category> categories = categoryService.all();
-		model.addAttribute("categories",categories);
+
+		List<Category> categories = categoryService.all();
+		model.addAttribute("categories", categories);
 		return "categories";
 	}
 
 	@PostMapping("")
-	public String create( @Valid @ModelAttribute("category") Category category, BindingResult res ){
-		if(res.hasErrors())	{
+	public String create(@Valid @ModelAttribute("category") Category category, BindingResult res, Model model) {
+		if (res.hasErrors()) {
+			ArrayList<Category> categories = categoryService.all();
+			model.addAttribute("categories", categories);
 			return "categories";
 		}
 		categoryService.create(category);
