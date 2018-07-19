@@ -1,9 +1,7 @@
 package com.codingdojo.dojoOverflow.models;
 
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,7 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Null;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity // Declaring a table
@@ -25,7 +23,7 @@ public class Question {
 	private Long id;
 
 
-	@Null(message="The question cannot be blank.")
+	@NotNull(message="The question cannot be blank.")
 	@Size(min=5,max=50,message="Question must be at least 5 characters.")
 	private String questionName;
 

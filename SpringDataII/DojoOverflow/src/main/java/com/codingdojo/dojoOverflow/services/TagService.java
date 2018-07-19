@@ -20,11 +20,16 @@ public class TagService {
 		return (ArrayList<Tag>) tagRepository.findAll();
 	}
 	
-	public Tag findOne(Long id) {
-		return tagRepository.findById(id).get();
+	// public Tag findOne(Long id) {
+	// 	return tagRepository.findById(id).get();
+	// } // this is in case we would like to find it by ID 
+
+	public Tag findTag(String tag) {
+		return tagRepository.findFirstByName(tag); // we are searching for a tag by its name and not by its ID 
 	}
 	
 	public void create(Tag category){
+		System.out.println("Hello from Tag Service" + category);
 		tagRepository.save(category);
 	}
 	

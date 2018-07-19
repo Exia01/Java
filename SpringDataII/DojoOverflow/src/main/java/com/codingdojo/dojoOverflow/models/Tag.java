@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-//import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -21,7 +21,8 @@ public class Tag {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min=1,max=255,message="Category Name Required.")
+	@NotNull(message="Tag(s) cannot be empty!")
+	@Size(min=1,max=255,message="Tag(s) must have at least 3 characters .")
 	private String name;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
@@ -32,7 +33,13 @@ public class Tag {
 	)
 	private List<Question> questions; //creating the questions list that will be stored in the join table ...I think?
 
-	public Tag() {
+	public Tag(){
+
+	}
+
+	public Tag(String x) { // we are instanciating a tag that will have the names in it. 
+		System.out.println("This is from the constructor " + x);
+		this.name = x;
 		
 	}
 	
@@ -56,6 +63,7 @@ public class Tag {
 	}
 
 	public void setName(String name){
+		System.out.println(name);
 		this.name=name;
 	}
 
